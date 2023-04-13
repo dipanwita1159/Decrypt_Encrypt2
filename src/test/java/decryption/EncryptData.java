@@ -39,9 +39,9 @@ public class EncryptData {
                 // Get the cell value
                 String dataToEncrypt = cellToEncrypt.getStringCellValue();
 
-                // Encode the data
-                byte[] encodedBytes = Base64.getEncoder().encode(dataToEncrypt.getBytes());
-                String encryptedData = new String(encodedBytes);
+                 // Encode the data using URL-safe Base64 encoding
+	                byte[] encodedBytes = Base64.getUrlEncoder().encode(encryptedPassword.getBytes(StandardCharsets.UTF_8));
+	                String encryptedData = new String(encodedBytes, StandardCharsets.UTF_8);
 
                 // Write the encrypted data back to the same cell
                 cellToEncrypt.setCellValue(encryptedData);
