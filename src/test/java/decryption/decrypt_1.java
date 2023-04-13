@@ -51,9 +51,9 @@ public class decrypt_1 {
             String encryptedPassword = encryptedPasswordCell.getStringCellValue();
             System.out.println("the encrypted password is"+ encryptedPassword);
 
-            // Decode the encrypted password
-            byte[] decodedBytes = Base64.getDecoder().decode(encryptedPassword.getBytes());
-            String decryptedPassword = new String(decodedBytes);
+           // Encode the data using URL-safe Base64 encoding
+	                byte[] encodedBytes = Base64.getUrlEncoder().encode(encryptedPassword.getBytes(StandardCharsets.UTF_8));
+	                String encryptedData = new String(encodedBytes, StandardCharsets.UTF_8);
 
             // Enter the user id and decrypted password in the respective fields
             WebElement userIdField = driver.findElement(By.xpath("//input[@placeholder='Username']"));
